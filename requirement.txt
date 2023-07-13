@@ -1,0 +1,14 @@
+asgiref @ file:///work/ci_py311/asgiref_1676843199969/work
+brotlipy==0.7.0
+certifi @ file:///croot/certifi_1683875369620/work/certifi
+cffi @ file:///work/ci_py311/cffi_1676822533496/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+cryptography @ file:///work/ci_py311_2/cryptography_1679335572456/work
+Django @ file:///work/ci_py311/django_1676851927387/work
+idna @ file:///work/ci_py311/idna_1676822698822/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pyOpenSSL @ file:///croot/pyopenssl_1678965284384/work
+PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
+requests @ file:///croot/requests_1682607517574/work
+sqlparse @ file:///work/ci_py311/sqlparse_1676828845822/work
+urllib3 @ file:///croot/urllib3_1680254681959/work

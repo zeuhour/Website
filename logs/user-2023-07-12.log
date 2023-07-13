@@ -1,0 +1,8 @@
+2023-07-12 10:44:17,172-INFO: 源IP: 127.0.0.1	路径: /user/login/	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test1']}>	
+2023-07-12 10:57:39,346-INFO: 源IP: 127.0.0.1	路径: /user/login/	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test1']}>	
+2023-07-12 10:57:41,378-INFO: 源IP: 127.0.0.1	路径: /user/login/	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test1']}>	
+2023-07-12 13:50:12,755-INFO: 源IP: 127.0.0.1	路径: /user/login	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test1']}>	
+2023-07-12 15:24:15,290-INFO: 源IP: 127.0.0.1	路径: /user/adduser	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test2']}>	
+2023-07-12 15:24:24,082-INFO: 源IP: 127.0.0.1	路径: /user/login	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test2']}>	
+2023-07-12 15:29:57,096-INFO: 源IP: 127.0.0.1	路径: /user/adduser	参数: POST <QueryDict: {'password': ['123456'], 'username': ['test2']}>	
+2023-07-12 16:00:14,553-INFO: 源IP: 127.0.0.1	路径: /user/changepw	参数: POST <QueryDict: {'password': ['1234563']}>	

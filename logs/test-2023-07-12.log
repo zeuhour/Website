@@ -1,0 +1,3 @@
+2023-07-12 21:21:12,466-INFO: 源IP: 127.0.0.1	路径: /user/test	参数: POST <QueryDict: {}>	
+2023-07-12 21:22:31,468-INFO: 源IP: 127.0.0.1	路径: /user/test	参数: POST <QueryDict: {}>	返回：{}
+2023-07-12 21:24:45,613-INFO: 源IP: 127.0.0.1	路径: /user/test	参数: POST <QueryDict: {}>	返回：b'{"msg": "\xe5\xae\x8c\xe6\x88\x90"}'
