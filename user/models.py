@@ -1,11 +1,15 @@
 from django.db import models
+from django.utils import timezone
+#from django.contrib.auth.hashers import make_password, check_password
+#from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
+class UserInfo(models.Model):
     name = models.CharField(max_length=10)
     birthday = models.DateField()
-    createtime = models.DateTimeField(auto_now_add=True)
     phonenumber = models.CharField(max_length=20, unique=True, primary_key=True)
-    email = models.EmailField()
-    password = models.CharField(max_length=20)
     deltag = models.BooleanField(default=False)
+
+    # def save(self, *args, **kwargs):
+    #     self.password = make_password(password=self.password, hasher="pbkdf2_sha1")
+    #     super(User, self).save(*args, **kwargs)

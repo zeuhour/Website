@@ -1,0 +1,1 @@
+2023-07-13 13:33:53,718-INFO: 源IP: 124.200.100.14	路径: /user/adduser	参数: POST <QueryDict: {'password': ['1234563'], 'username': ['test2']}>	返回：b'{"msg": "\xe7\x94\xa8\xe6\x88\xb7\xe5\xb7\xb2\xe5\xad\x98\xe5\x9c\xa8\xef\xbc\x81"}'

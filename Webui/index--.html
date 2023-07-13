@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <div id = "div1">{{title}}</div>
+    <script src="./JS/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#div1",
+            data(){
+                return{
+                    title: "this is title",
+                    body: "this is body"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
