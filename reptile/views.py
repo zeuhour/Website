@@ -9,7 +9,7 @@ def WOAcover(request: HttpRequest):
     if request.method == 'POST':
         data = request.POST
         url = data.get("url")
-        print(url)
+        print(data)
         try:
             resp = req.getcover(url)
             return JsonResponse(resp)

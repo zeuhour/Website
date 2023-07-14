@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <script src="ajax.js" type="text/javascript"> -->
+        </script>
+    </head>
+
+    <body>
+        <input type="text" width="500px" id="url">
+        <input type="button" value="add" name="add" onclick="ajax('url='+ document.getElementById('url').value, 'POST', '/api/reptile/WOAcover/');" />
+        <div id = "showimg">
+            <a id="img1" href="">link</a>
+        </div>
+        
+        <script>
+            function ajax(data, method, url){
+                let xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(data);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4){
+                        let im1 = document.getElementById('img1');
+                        im1.href = JSON.parse(xhr.responseText).url;
+                        // window.alert(JSON.parse(xhr.responseText).url);
+                    }
+                        
+                        
+    }
+}
+        </script>
+    </body>
+</html>
