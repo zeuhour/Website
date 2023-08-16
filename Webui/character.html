@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <!-- <script src="ajax.js" type="text/javascript"> -->
+        <!-- </script> -->
+    </head>
+
+    <body>
+        <input type="button" value="获取题目" onclick="ajax('', 'GET', '/api/reptile/getcharactertopic/');" />
+        
+        <div id = "test" >
+
+
+        </div>
+        
+        <script charset="utf-8">
+            function p(){
+                var res = "";
+                for (i=1; i<=12; i++){
+                    check = document.getElementsByName(i.toString());
+                    for(j=0; j<check.length; j++){
+                        if(check[j].checked){
+                            res += check[j].value;
+                        }
+                        
+                    }
+                    if (i!=12)
+                        res+= ",";
+                }
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '/api/reptile/getcharactertopic/');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('answers='+res);
+                xhr.onreadystatechange = function(){
+                    if(this.readyState==4&&this.status==200){
+                        resp = JSON.parse(this.responseText);
+                        html = "<ul>";
+                        html += `<li>人格字母：${resp.result.alphabet} </li>
+                                 <li>人格英文：${resp.result.vocabulary}</li>
+                                 <li>人格中文：${resp.result.occupation}</li>
+                                 <li>性格概述：<br>`
+                        for (i=0;i<resp.result.summarize.length;i++){
+                            html = html+resp.result.summarize[i]+"<br>";
+                        }
+                        html+="</li><li>性格描述：<br>"
+                        for (i=0;i<resp.result.desc.length;i++){
+                            html = html+resp.result.desc[i]+"<br>";
+                        }
+                        html+="</li><li>性格特点：<br>"
+                        for (i=0;i<resp.result.characteristic.length;i++){
+                            html = html+"标题："+resp.result.characteristic[i].title+"<br>";
+                            for (j=0;j<resp.result.characteristic[i].desc.length;j++){
+                                html = html + "特点描述："+resp.result.characteristic[i].desc[j]+"<br>";
+                            }
+                            
+                        }
+                        html+="</li>"
+                        
+                        document.getElementById('test').innerHTML=html;
+                    }
+                }
+            }
+
+            function ajax(data, method, url){
+                let xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(data);
+                xhr.onreadystatechange = function(){
+                    if(this.readyState==4&&this.status==200){
+                        res = JSON.parse(this.responseText);
+                        html = "<ol>";
+                        for(i=0; i<res.result.length; i++){
+                            html += `<li>${res.result[i].q} <br> 
+                                
+                                    <input type="radio" name=${(i+1).toString()} value=${res.result[i].ia}>${res.result[i].a}   
+                                    <input type="radio" name=${(i+1).toString()} value=${res.result[i].ib}>${res.result[i].b}
+                                </li>
+                                `
+                        }
+                        html += `</ol> <br>
+                        <input type="button" value="提交" onclick="p();"/>
+                        `
+                        document.getElementById('test').innerHTML=html;
+                    }
+                }
+            }           
+        </script>
+    </body>
+</html>

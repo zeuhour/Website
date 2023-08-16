@@ -6,40 +6,37 @@ import re
 path = './logs'
 
 class Logger:
-    def __init__(self, filename):
-        self.logs = {}  # 存放根据文件名生成的日志对象
+    def __init__(self):
         self.format = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s')
-        self.stream_handler = logging.StreamHandler()
-        self.stream_handler.setLevel(logging.DEBUG)
-        self.stream_handler.setFormatter(self.format)
+        # self.stream_handler = logging.StreamHandler()
+        # self.stream_handler.setLevel(logging.DEBUG)
+        # self.stream_handler.setFormatter(self.format)
         if not os.path.exists(path):
             os.mkdir(path)
-        self.file_handler = logging.FileHandler(
-            filename="{}/{}-{}.log".format(path, filename, datetime.date.today()),
-            mode='a')
-        self.file_handler.setLevel(logging.DEBUG)
-        self.file_handler.setFormatter(self.format)
-        self.filename = filename
+        
 
-    def getlog(self):
-
-        _log = logging.getLogger(self.filename)
+    def getlog(self, filename):
+        filename = f"{filename}-{datetime.date.today()}"
+        _log = logging.getLogger(filename)
         if _log.hasHandlers():
             return _log
         else:
             _log.setLevel('DEBUG')
+            self.file_handler = logging.FileHandler(
+                filename=f"{path}/{filename}.log", mode='a')
+            self.file_handler.setLevel(logging.DEBUG)
+            self.file_handler.setFormatter(self.format)
             _log.addHandler(self.file_handler)
             #_log.addHandler(self.stream_handler)
             return _log
 
 
 def logger_request(fname):
-    _log = Logger(fname).getlog()
+    _log = Logger().getlog(fname)
     def out_log(func):
         @wraps(func)
         def infunc(request: HttpRequest):
-            res = func(request) 
-            
+            res = func(request)             
             _log.info(f"源IP: {request.META.get('HTTP_X_FORWARDED_FOR') if 'HTTP_X_FORWARDED_FOR' in request.META else request.META.get('REMOTE_ADDR')}\t"\
                       f"路径: {request.get_full_path()}\t"\
                       f"参数: {request.method} {getattr(request, request.method)}\t"\
@@ -50,7 +47,7 @@ def logger_request(fname):
     return out_log
 
 def logger_func(fname):
-    _log = Logger(fname).getlog()
+    _log = Logger().getlog(fname)
     def out_log(func):
         @wraps(func)
         def inner(*args, **kwargs):

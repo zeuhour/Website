@@ -1,4 +1,0 @@
-2023-07-06 11:15:39,753-INFO: 源IP: 127.0.0.1	路径: /user/create/	参数: <QueryDict: {'name': ['zhangsan'], 'birthday': ['1998-09-02'], 'phonenumber': ['12399992330'], 'email': ['xx32432x@xx.com'], 'password': ['123456']}>
-2023-07-06 14:12:30,954-INFO: 源IP: 127.0.0.1	路径: /user/create/	参数: POST <QueryDict: {'name': ['zhangsan'], 'birthday': ['1998-09-02'], 'phonenumber': ['12399992330'], 'email': ['xx32432x@xx.com'], 'password': ['123456']}>
-2023-07-06 14:35:39,323-INFO: 源IP: 127.0.0.1	路径: /user/create/	参数: POST <QueryDict: {'name': ['zhangsan'], 'birthday': ['1998-09-02'], 'phonenumber': ['12399992330'], 'email': ['xx32432x@xx.com'], 'password': ['123456']}>
-2023-07-06 15:40:54,668-INFO: 源IP: 127.0.0.1	路径: /user/create/	参数: POST <QueryDict: {'name': ['zhangsan'], 'birthday': ['1998-09-02'], 'phonenumber': ['12399992330'], 'email': ['xx32432x@xx.com'], 'password': ['123456']}>
